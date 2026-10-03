@@ -1,0 +1,19 @@
+name: kiguard-backend
+type: web
+git:
+  repository: github.com/myogeswar65-cmd/kiguard
+  branch: main
+  root_directory: backend
+build:
+  buildpack:
+    build_command: pip install -r requirements.txt
+    run_command: uvicorn app.main:app --host 0.0.0.0 --port 8000
+instance_type: free
+regions:
+  - was
+ports:
+  - port: 8000
+    protocol: http
+env:
+  - key: ALLOWED_ORIGINS
+    value: https://kiguard.vercel.app
