@@ -3,8 +3,7 @@ const nextConfig = {
   env: {
     NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL,
   },
-  // Allow Vercel deployment
-  output: 'standalone',
+  // Remove 'standalone' - not needed for Render, causes issues
 };
 
 module.exports = nextConfig;
