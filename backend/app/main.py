@@ -61,3 +61,8 @@ def root():
 @app.get("/health")
 def health():
     return {"status": "ok"}
+
+
+# Vercel serverless handler
+from mangum import Mangum
+handler = Mangum(app)

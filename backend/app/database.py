@@ -3,8 +3,8 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
-# Use SQLITE_PATH env var if set (Railway persistent volume), else local
-DB_PATH = os.getenv("SQLITE_PATH", "./kiguard.db")
+# Use SQLITE_PATH env var if set (Railway persistent volume), else /tmp for Vercel
+DB_PATH = os.getenv("SQLITE_PATH", "/tmp/kiguard.db")
 SQLALCHEMY_DATABASE_URL = f"sqlite:///{DB_PATH}"
 
 engine = create_engine(
